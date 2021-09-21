@@ -11,7 +11,7 @@ function Navbar() {
 
   const handleSearchBarToggle = () => {
     const searchBar = document.querySelector('.search-bar');
-    searchBar.classList.toggle('visible');
+    searchBar.classList.toggle('hide-search-bar');
   }
 
   return (
@@ -40,20 +40,18 @@ function Navbar() {
       </div>
       <div className="navbar-right">
         <input type="text" className="search-bar" />
-        <span className="search-icon">
+        <span className="search-icon" onClick={handleSearchBarToggle}>
           {searchIcon}
         </span>
-        <span className="bell" onClick={handleSearchBarToggle}>
+        <span className="bell">
           {bell}
         </span>
-        <li>
-          <img src="" alt="" />
-          <div className="dropdown-menu">
-            <a href="#">Account</a>
-            <a href="#">Help Centre</a>
-            <a href="#">Sign Out</a>
-          </div>
-        </li>
+        <img src="" alt="" />
+        <div className="dropdown-menu">
+          <a href="#">Account</a>
+          <a href="#">Help Centre</a>
+          <a href="#">Sign Out</a>
+        </div>
       </div>
     </div>
   )
