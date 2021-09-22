@@ -54,13 +54,21 @@
   }
 
   .search-icon {
-    margin: 15px 5px;
-    font-size: larger;
+    align-self: center;
+    font-size: 25px;
+    margin-right: 5px;
   }
 
   .bell {
-    margin: 15px 5px;
-    font-size: larger;
+    align-self: center;
+    font-size: 25px;
+    margin: 0 10px;
+  }
+
+  .avatar {
+    border-radius: 50%;
+    height: 80%;
+    align-self: center;
   }
 
   ul {

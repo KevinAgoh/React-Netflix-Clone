@@ -46,7 +46,7 @@ function Navbar() {
         <span className="bell">
           {bell}
         </span>
-        <img src="" alt="" />
+        <img src="../assets/avatar.png" alt="User avatar" className='avatar' />
         <div className="dropdown-menu">
           <a href="#">Account</a>
           <a href="#">Help Centre</a>
