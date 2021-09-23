@@ -1,29 +1,34 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import "./row.scss";
-import axios from 'axios';
 
-const API_KEY = "3d27593948a5340e1af6efc162165567";
+function Row({ title, fetchUrl }) {
 
-const instance = axios.create({
-  baseURL: "https://api.themoviedb.org/3"
-})
+  const axios = require("axios").create({
+    baseURL: "https://api.themoviedb.org/3"
+  });
 
-const requests = {
-  fetchTrending: `/trending/all/day?api_key=${API_KEY}&language=en-US`,
-  fetchNetflixOriginals: `discover/tv?api_key=${API_KEY}&with_network=213`,
-  fetchTopRated: `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}&language=en-US&page=1`,
-  fetchMovieThrillers: `/discover/movies?api_key=${API_KEY}&with_genres=53`,
-  fetchTvComedies: `/discover/tv?api_key=${API_KEY}&with_genres=35`,
-  fetchDocumentaryFilms: `/discover/movies?api_key=${API_KEY}&with_genres=99`,
-  fetchTvDrama: `/discover/tv?api_key=${API_KEY}&with_genres=18`,
-  fetchActionMovies: `/discover/movies?api_key=${API_KEY}&with_genres=28`,
-}
+  const [ movies, setMovies ] = React.useState([]);
+  const baseUrl = "https://api.themoviedb.org/3";
 
+  useEffect(() => {
+    async function fetchData () {
+      const request = await axios.get(fetchUrl);
+      console.log(request);
+      return request;
+    }
+    fetchData();
+  }, []);
 
-function Row(props) {
   return (
-    <div>
-      
+    <div className='row'>
+      <h2>{title}</h2>
+      <div className="cards">
+        {movies.map((movie)=> (
+          <div className="card">
+            <img src={`${baseUrl}${movie.data.results.poster_path}`} alt={`${baseUrl}${movie.data.results.name}`} />
+          </div>
+        ))}
+      </div>
     </div>
   )
 }
