@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import axios from "axios";
+
+import './banner.scss';
 
 function Banner() {
 
@@ -7,24 +9,33 @@ function Banner() {
   const url = `https://api.themoviedb.org/3/trending/all/day?api_key=${API_KEY}`;
   const axios = require('axios');
 
-  const [poster, setPoster] = React.useState('')
 
-  axios.get(url)
-  .then(function (response) {
-    console.log(response);
-    setPoster(response.data.results[0].poster_path);
-  })
-  .catch(function (error) {
-    console.log(error);
-  })
-  .then(function () {
-    // always executed
-  });
+  const [movie, setMovie] = React.useState([]);
+
+  useEffect(() => {
+    axios.get(url)
+    .then(function (response) {
+      setMovie(response.data.results[0]);
+    })
+    .catch(function (error) {
+      console.log(error);
+    })
+    .then(function () {
+      // always executed
+    });
+  }, [])
+
+  console.log(movie);
 
   return (
-    <div>
-      <img src={poster} alt="" />
-    </div>
+    <header className='banner' style={{backgroundImage: `url(https://image.tmdb.org/t/p/original/${movie.backdrop_path})`}}>
+      <h1 className="movie-title">{movie.name || movie.original_name}</h1>
+      <h3 className="movie-description">{movie.overview}</h3>
+      <div className="button-container">
+        <button></button>
+        <button></button>
+      </div>
+    </header>
   )
 }
 
