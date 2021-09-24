@@ -8,25 +8,25 @@ function Row({ title, fetchUrl }) {
   });
 
   const [ movies, setMovies ] = React.useState([]);
-  const baseUrl = "https://api.themoviedb.org/3";
+  const baseUrl = "https://image.tmdb.org/t/p/original";
 
   useEffect(() => {
     async function fetchData () {
       const request = await axios.get(fetchUrl);
-      console.log(request);
+      setMovies(request.data.results);
       return request;
     }
     fetchData();
   }, []);
 
+  console.table(movies);
+
   return (
     <div className='row'>
       <h2>{title}</h2>
-      <div className="cards">
+      <div className="card">
         {movies.map((movie)=> (
-          <div className="card">
-            <img src={`${baseUrl}${movie.data.results.poster_path}`} alt={`${baseUrl}${movie.data.results.name}`} />
-          </div>
+          <img src={`${baseUrl}${movie.poster_path}`} alt={`${baseUrl}${movie.name}`} />
         ))}
       </div>
     </div>
