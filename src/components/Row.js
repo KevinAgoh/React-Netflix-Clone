@@ -24,9 +24,9 @@ function Row({ title, fetchUrl }) {
   return (
     <div className='row'>
       <h2>{title}</h2>
-      <div className="card">
+      <div className="cards">
         {movies.map((movie)=> (
-          <img src={`${baseUrl}${movie.poster_path}`} alt={`${baseUrl}${movie.name}`} />
+          <img src={`${baseUrl}${movie.backdrop_path}`} alt={`${baseUrl}${movie.name}`} />
         ))}
       </div>
     </div>
