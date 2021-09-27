@@ -28,15 +28,18 @@ function Banner() {
     });
   }, [])
 
+  console.log(movie)
+
   return (
     <header className='banner' 
             style={{
-              backgroundImage: `url(https://image.tmdb.org/t/p/original/${movie.backdrop_path}), 
-                                linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9))`
+              background: `url(https://image.tmdb.org/t/p/original/${movie.backdrop_path}),
+                           linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), 
+                           center center`
             }}
     >
       <div className="info-container">
-        <h1 className="movie-title">{movie.title || movie.original_title}</h1>
+        <h1 className="movie-title">{movie.name || movie.title || movie.original_title || movie.original_name}</h1>
         <h3 className="movie-description">{movie.overview}</h3>
         <div className="button-container">
           <button className="play-btn">{playIcon} Play</button>

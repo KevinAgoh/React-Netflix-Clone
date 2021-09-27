@@ -69,31 +69,38 @@
   }
 
   .search-icon {
-    align-self: center;
     font-size: 25px;
     margin-right: 5px;
     cursor: pointer;
   }
 
   .bell {
-    align-self: center;
     font-size: 25px;
     margin: 0 10px;
   }
 
   .avatar {
-    border-radius: 8px;
-    height: 50px;
-    width: 50px;
-    align-self: center;
+    border-radius: 5px;
+    height: 38px;
+    width: 38px;
+  }
+
+  .dropdown-menu {
+    display: flex;
+    align-items: center;
+  }
+
+  .down-arrow {
+    padding: 5px;
+    font-size: 20px;
+
+    &:hover {
+      cursor: pointer;
+    }
   }
 
   ul {
     list-style-type: none;
-
-    li > a {
-      line-height: 34px;
-    }
 
     &:hover {
       font-weight: bold;

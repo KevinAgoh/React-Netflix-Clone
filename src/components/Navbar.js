@@ -1,10 +1,9 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './navbar.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBell } from '@fortawesome/free-solid-svg-icons';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { faSortDown } from '@fortawesome/free-solid-svg-icons';
-import { useEffect } from 'react/cjs/react.development';
 
 function Navbar() {
 
