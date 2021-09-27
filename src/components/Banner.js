@@ -33,9 +33,10 @@ function Banner() {
   return (
     <header className='banner' 
             style={{
-              background: `url(https://image.tmdb.org/t/p/original/${movie.backdrop_path}),
-                           linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), 
-                           center center`
+              backgroundImage: `linear-gradient(to left, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), 
+                                url(https://image.tmdb.org/t/p/original/${movie.backdrop_path})`,
+              backgroundPosition: "center center",
+              backgroundColor: "white"
             }}
     >
       <div className="info-container">
