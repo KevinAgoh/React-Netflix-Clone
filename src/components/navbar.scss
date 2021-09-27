@@ -1,8 +1,17 @@
 #navbar {
-  height: 60px;
+  height: 68px;
   display: flex;
   justify-content: space-between;
-  background-color: grey;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  color: white;
+  z-index: 1;
+  transition: all 0.5s;
+}
+
+.black {
+  background: #141414;
 }
 
 .navbar-left {
@@ -10,8 +19,8 @@
   justify-content: flex-start;
 
   .logo {
-    height: 50px;
-    margin: 0 10px;
+    height: 40px;
+    padding: 10px;
   }
 
   ul {
@@ -20,20 +29,25 @@
 
   .navbar-menu {
     display: flex;
-    justify-content: space-between;
+    font-size: 10px;
+    align-items: center;
 
     li {
-      padding: 0 10px;
+      padding: 0 15px;
+
+      #home {
+        font-weight: bold;
+      }
     }
 
     a {
       text-decoration: none;
-      font-size: medium;
-      color: black;
+      font-size: small;
+      text-decoration: none;
+      color: white;
 
       &:hover {
-        font-weight: bolder;
-        color: grey;
+        color: #b3b3b3;
       }
     }
   }
@@ -41,7 +55,8 @@
 
 .navbar-right {
   display: flex;
-  justify-content: flex-start;
+  justify-content: flex-end;
+  align-items: center;
 
   .hide-search-bar {
     visibility: visible;
@@ -57,6 +72,7 @@
     align-self: center;
     font-size: 25px;
     margin-right: 5px;
+    cursor: pointer;
   }
 
   .bell {
@@ -66,23 +82,28 @@
   }
 
   .avatar {
-    border-radius: 50%;
-    height: 80%;
+    border-radius: 8px;
+    height: 50px;
+    width: 50px;
     align-self: center;
   }
 
   ul {
     list-style-type: none;
+
+    li > a {
+      line-height: 34px;
+    }
+
+    &:hover {
+      font-weight: bold;
+      color: grey;
+    }
   }
 
   a {
     text-decoration: none;
     font-size: medium;
     color: black;
-
-    &:hover {
-      font-weight: bold;
-      color: grey;
-    }
   }
 }

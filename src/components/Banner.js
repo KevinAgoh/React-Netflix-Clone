@@ -17,8 +17,8 @@ function Banner() {
 
   useEffect(() => {
     axios.get(url)
-    .then(function (response) {
-      setMovie(response.data.results[0]);
+    .then(function (res) {
+      setMovie(res.data.results[Math.floor(Math.random() * res.data.results.length - 1 )]);
     })
     .catch(function (error) {
       console.log(error);
@@ -29,7 +29,12 @@ function Banner() {
   }, [])
 
   return (
-    <header className='banner' style={{backgroundImage: `url(https://image.tmdb.org/t/p/original/${movie.backdrop_path})`}}>
+    <header className='banner' 
+            style={{
+              backgroundImage: `url(https://image.tmdb.org/t/p/original/${movie.backdrop_path}), 
+                                linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9))`
+            }}
+    >
       <div className="info-container">
         <h1 className="movie-title">{movie.title || movie.original_title}</h1>
         <h3 className="movie-description">{movie.overview}</h3>
