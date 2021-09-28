@@ -7,31 +7,36 @@ h2 {
 .row {
   height: 150px;
   width: 100%;
-  padding-bottom: 40px;
-  margin-left: 50px;
-}
+  padding-bottom: 70px;
 
-.cards::-webkit-scrollbar {
-  display: none;
-}
+  .cards::-webkit-scrollbar {
+    display: none;
+  }
 
-.cards {
-  display: flex;
-  overflow-x: scroll;
+  .cards {
+    display: flex;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    z-index: 1;
+    width: 100%;
 
-  img {
-    height: 150px;
-    width: 250px;
-    padding: 0 5px;
-    border-radius: 20px;
+    img {
+      height: 150px;
+      width: 250px;
+      padding: 0 5px;
+      border-radius: 20px;
 
-    &:hover {
-      transform: scale(1.3);
-      cursor: pointer;
+      &:hover {
+        transform: scale(1.3);
+        cursor: pointer;
+      }
     }
   }
 
   .chevron {
     color: white;
+    cursor: pointer;
+    z-index: 2;
+    align-self: center;
   }
 }
