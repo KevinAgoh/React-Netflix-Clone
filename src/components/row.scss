@@ -9,7 +9,15 @@
   }
 
   .cards::-webkit-scrollbar {
-    display: none;
+    width: 11px;
+  }
+
+  .cards:hover .card {
+    transform: translateX(-25%);
+  }
+
+  .card:hover ~ .card {
+    transform: translateX(25%);
   }
 
   .cards {
@@ -30,6 +38,7 @@
       padding: 0 10px;
       object-fit: contain;
       border-radius: 5px;
+      transition: transform 300ms ease 100ms;
 
       img {
         height: 100%;
@@ -44,7 +53,7 @@
 
       &:hover {
         background-color: #141414;
-        transform: scale(1.1);
+        transform: scale(1.1) !important;
         cursor: pointer;
       }
     }
