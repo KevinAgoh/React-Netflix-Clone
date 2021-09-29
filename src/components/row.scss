@@ -1,13 +1,12 @@
-@import "node_modules/@glidejs/glide/src/assets/sass/glide.core";
-
-h2 {
-  text-align: left;
-  padding-left: 10px;
-  color: white;
-}
-
 .row {
   width: 100%;
+  overflow-x: hidden;
+
+  h2 {
+    text-align: left;
+    padding-left: 30px;
+    color: white;
+  }
 
   .cards::-webkit-scrollbar {
     display: none;
@@ -17,7 +16,9 @@ h2 {
     display: flex;
     overflow-x: scroll;
     overflow-y: hidden;
-    padding: 20px;
+    padding-left: 30px;
+    margin-bottom: 30px;
+    padding-bottom: 40px;
     height: 200px;
     width: 100%;
     z-index: 1;
@@ -28,21 +29,22 @@ h2 {
       width: 250px;
       padding: 0 10px;
       object-fit: contain;
+      border-radius: 5px;
 
       img {
         height: 100%;
         z-index: 1;
       }
 
-      h4 {
+      h3 {
         font-size: 10px;
-        position: absolute;
         color: white;
+        white-space: normal;
       }
 
       &:hover {
-        background-color: black;
-        transform: scale(1.3);
+        background-color: #141414;
+        transform: scale(1.1);
         cursor: pointer;
       }
     }

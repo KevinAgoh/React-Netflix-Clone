@@ -1,7 +1,5 @@
 import React, { useEffect } from 'react';
 import "./row.scss";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faChevronRight } from '@fortawesome/free-solid-svg-icons';
 
 function Row({ title, fetchUrl, isLargeRow }) {
 
@@ -24,22 +22,10 @@ function Row({ title, fetchUrl, isLargeRow }) {
   
   console.log(movies);
 
-  // Fontawesome variables
-
-  const arrowRight = <FontAwesomeIcon 
-                        icon={faChevronRight} 
-                        size="2x" 
-                        className="chevron fa-beat" 
-                        inverse
-                      />
-
   return (
     <div className='row'>
       <h2>{title}</h2>
       <div className="cards">
-        <div className="chevron">
-          {arrowRight}
-        </div>
         {movies.map((movie)=> (
           <div className="card">
             <img
@@ -48,7 +34,7 @@ function Row({ title, fetchUrl, isLargeRow }) {
               alt={`${baseUrl}${movie.name}`}
               key={movie.id}
             />
-            <h4 className="movie-title">{movie.name || movie.title || movie.original_title || movie.original_name}</h4>
+            <h3 className="movie-title">{movie.name || movie.title || movie.original_title || movie.original_name}</h3>
           </div>
         ))}
       </div>
