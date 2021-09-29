@@ -3,7 +3,7 @@ import "./row.scss";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronRight } from '@fortawesome/free-solid-svg-icons';
 
-function Row({ title, fetchUrl }) {
+function Row({ title, fetchUrl, isLargeRow }) {
 
   // Fetch API 
 
@@ -22,19 +22,16 @@ function Row({ title, fetchUrl }) {
     fetchData();
   }, []);
   
-  console.table(movies);
+  console.log(movies);
 
   // Fontawesome variables
 
   const arrowRight = <FontAwesomeIcon 
-  icon={faChevronRight} 
-  size="2x" 
-  className="chevron fa-beat" 
-  inverse
-  />
-
-  // Javacript functions
-
+                        icon={faChevronRight} 
+                        size="2x" 
+                        className="chevron fa-beat" 
+                        inverse
+                      />
 
   return (
     <div className='row'>
@@ -44,14 +41,17 @@ function Row({ title, fetchUrl }) {
           {arrowRight}
         </div>
         {movies.map((movie)=> (
-          <img
-            className="card-image"
-            src={`${baseUrl}${movie.backdrop_path}`} 
-            alt={`${baseUrl}${movie.name}`}
-            key={movie.id}
-          />
+          <div className="card">
+            <img
+              className="card-image"
+              src={`${baseUrl}${isLargeRow ? movie.poster_path : movie.backdrop_path}`} 
+              alt={`${baseUrl}${movie.name}`}
+              key={movie.id}
+            />
+            <h4 className="movie-title">{movie.name || movie.title || movie.original_title || movie.original_name}</h4>
+          </div>
         ))}
-      </div>   
+      </div>
     </div>
   )
 }

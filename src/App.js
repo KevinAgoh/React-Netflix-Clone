@@ -13,6 +13,7 @@ function App() {
       <Row 
         title="Trending Now"
         fetchUrl={requests.fetchTrending}
+        isLargeRow
       />
       <Row 
         title="Netflix Originals"
