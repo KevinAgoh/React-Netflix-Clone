@@ -30,11 +30,11 @@ function Row({ title, fetchUrl, isLargeRow }) {
             <div className="card">
               <img
                 className="card-image"
-                src={`${baseUrl}${isLargeRow ? movie.poster_path : movie.backdrop_path}`} 
+                src={`${baseUrl}${isLargeRow ? movie.poster_path : (movie.backdrop_path || movie.poster_path)}`} 
                 alt={`${baseUrl}${movie.name}`}
                 key={movie.id}
               />
-              <h3 className="movie-title">{movie.name || movie.title || movie.original_title || movie.original_name}</h3>
+              <h3 className="movie-title">{movie.name || movie.title || movie.original_title || movie.original_name} </h3>
             </div>
           </>
         ))}

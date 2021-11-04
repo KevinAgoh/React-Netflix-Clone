@@ -28,8 +28,6 @@ function Banner() {
     });
   }, [])
 
-  console.log(movie)
-
   return (
     <header className='banner' 
             style={{

@@ -41,7 +41,7 @@ function Navbar() {
   })
 
   return (
-    <div id='navbar' className={handleNavbarColour}>
+    <div id="navbar" className={`handleNavbarColour`}>
       <div className="navbar-left">
         <a href="#">
           <img src="https://image.tmdb.org/t/p/original/wwemzKWzjKYJFfCeiB57q3r4Bcm.svg" alt="Netflix logo" className='logo' />
